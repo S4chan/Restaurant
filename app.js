@@ -21,9 +21,12 @@ app.get("/restaurants", (req, res) => {
   res.render("index", { restaurants, BASE_IMG_URL });
 });
 
-app.get("/restaurant/:id", (req, res) => {
+app.get("/restaurants/:id", (req, res) => {
   const id = req.params.id;
-  res.send(`read restaurant: ${id}`);
+  const restaurant = restaurants.find(
+    (restaurant) => restaurant.id.toString() === id
+  );
+  res.render("show", { restaurant });
 });
 
 app.listen(port, () => {
