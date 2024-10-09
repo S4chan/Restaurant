@@ -11,6 +11,7 @@
   "author": "4chan",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1"
   }
 }
