@@ -29,6 +29,17 @@ app.get("/restaurants/:id", (req, res) => {
   res.render("show", { restaurant });
 });
 
+app.get("/search", (req, res) => {
+  const keyword = req.query.keyword?.trim();
+  const matchRestaurants = restaurants.filter(
+    (item) =>
+      item.name.toLowerCase().includes(keyword.toLowerCase()) ||
+      item.category.toLowerCase().includes(keyword.toLowerCase())
+  );
+
+  res.render("index", { restaurants: matchRestaurants });
+});
+
 app.listen(port, () => {
   console.log(`express server is running on http://localhost:${port}`);
 });
